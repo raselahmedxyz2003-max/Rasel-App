@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rasel App</title>
+<style>
+body{margin:0;font-family:sans-serif;background:#f4f7f4}
+.top{background:#0b5d3b;color:white;text-align:center;padding:18px;font-size:22px;font-weight:bold}
+.box{max-width:600px;margin:10px auto;padding:10px}
+.card{background:white;border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 2px 6px rgba(0,0,0,0.1)}
+.btn{display:block;width:100%;padding:13px;margin-top:10px;border:none;border-radius:10px;font-size:16px;font-weight:bold;color:white;cursor:pointer}
+.g{background:#db4437}.f{background:#1877f2}.gr{background:#0b5d3b}
+.tabs{display:flex;background:white;border-radius:10px;overflow:hidden;margin-bottom:12px}
+.tabs button{flex:1;padding:13px;border:none;background:white;font-weight:bold;color:#0b5d3b;cursor:pointer}
+.tabs button.on{background:#0b5d3b;color:white}
+.ar{font-size:20px;text-align:right;direction:rtl;background:#f9f9f2;padding:10px;border-radius:8px;margin:8px 0}
+.bn{font-size:15px;line-height:1.6}
+.tag{background:#e6f4ec;color:#0b5d3b;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:bold}
+</style>
+</head>
+<body>
+<div id="login">
+<div class="top">Rasel App</div>
+<div class="box">
+<div class="card" style="text-align:center">
+<h2>Login korun</h2>
+<button class="btn g" onclick="dhuko('Gmail')">Gmail diye Login</button>
+<button class="btn f" onclick="dhuko('Facebook')">Facebook diye Login</button>
+<button class="btn gr" onclick="dhuko('Guest')">Guest hisebe dhukun</button>
+</div>
+</div>
+</div>
+<div id="app" style="display:none">
+<div class="top">Rasel App - <span id="nam"></span> <button onclick="ber()" style="float:right;background:white;border:none;padding:5px 10px;border-radius:8px">Logout</button></div>
+<div class="box">
+<div class="tabs">
+<button id="b1" class="on" onclick="tab('q')">Quran</button>
+<button id="b2" onclick="tab('h')">Hadith</button>
+<button id="b3" onclick="tab('d')">Dua</button>
+</div>
+<div id="q">
+<div class="card"><span class="tag">Surah Fatiha</span><div class="ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div><div class="bn">Porom korunar moy, oshim doyalu Allah er name.</div></div>
+<div class="card"><span class="tag">Ayatul Kursi</span><div class="ar">اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ</div><div class="bn">Allah, tini chara kono mabud nei, tini chirojibito.</div></div>
+<div class="card"><span class="tag">Surah Ikhlas</span><div class="ar">قُلْ هُوَ اللَّهُ أَحَدٌ</div><div class="bn">Bolun, tini Allah, Ek.</div></div>
+</div>
+<div id="h" style="display:none">
+<div class="card"><span class="tag">Bukhari</span><div class="bn"><b>Kaj niyot er upor nirvorshil.</b></div></div>
+<div class="card"><span class="tag">Muslim</span><div class="bn"><b>Pobitrota iman er ordhek.</b></div></div>
+</div>
+<div id="d" style="display:none">
+<div class="card"><span class="tag">Robbana Dua</span><div class="ar">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً</div><div class="bn">He amader Rob, amader duniya te kollan dao.</div></div>
+</div>
+</div>
+</div>
+<script>
+function dhuko(t){document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';document.getElementById('nam').innerText=t}
+function ber(){document.getElementById('app').style.display='none';document.getElementById('login').style.display='block'}
+function tab(n){document.getElementById('q').style.display='none';document.getElementById('h').style.display='none';document.getElementById('d').style.display='none';document.getElementById('b1').classList.remove('on');document.getElementById('b2').classList.remove('on');document.getElementById('b3').classList.remove('on');if(n=='q'){document.getElementById('q').style.display='block';document.getElementById('b1').classList.add('on')}if(n=='h'){document.getElementById('h').style.display='block';document.getElementById('b2').classList.add('on')}if(n=='d'){document.getElementById('d').style.display='block';document.getElementById('b3').classList.add('on')}}
+</script>
+</body>
+</html>
